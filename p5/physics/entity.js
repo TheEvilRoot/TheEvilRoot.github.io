@@ -4,8 +4,6 @@ class Entity {
 		this.pos = createVector(x, y);
 		this.vel = createVector();
 		this.acc = createVector();
-		this.maxVel = 10;
-		this.maxF = 2;
 
 		this.radius = radius ? radius : 10;
 	}
@@ -13,10 +11,6 @@ class Entity {
 	update() {
 		this.pos.add(this.vel);
 		this.vel.add(this.acc);
-		if (this.speedometer) { 
-			this.vel.limit(this.speedometer.max);
-			this.speedometer.cur = this.vel.mag();
-		}
 		// console.log(this.vel.mag());
 
 		this.acc.mult(0);
@@ -39,12 +33,6 @@ class Entity {
 		this.acc.add(force);
 	}
 
-	isPoked(x, y) {
-		let d = dist(this.pos.x, this.pos.y, x, y);
-
-		return d < this.radius;
-	}
-
 	edges() {
 
 		if (this.pos.x < this.radius ||
@@ -56,8 +44,10 @@ class Entity {
 
 	}
 
-	attach(speedometer) {
-		this.speedometer = speedometer;
+	gravityBehavour(ge) {
+		let d = dist(this.x,this.x, ge.x, ge.y);
+
+		let f = 10 * (1 / d);
 	}
 
 }
