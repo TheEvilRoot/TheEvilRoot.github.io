@@ -9,10 +9,8 @@ function setup() {
 }
 
 function mousePressed() {
-	for (var e of entities) {
-		if (e.isPoked(mouseX, mouseY)) {
-			e.applyForce(p5.Vector.random2D());
-		}
+	if (entity.isPoked(mouseX, mouseY)) {
+		entity.applyForce(p5.Vector.random2D());
 	}
 }
 
