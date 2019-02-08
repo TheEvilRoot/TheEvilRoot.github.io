@@ -1,6 +1,4 @@
 
-
-
 class Node {
 
 	constructor (data) {
