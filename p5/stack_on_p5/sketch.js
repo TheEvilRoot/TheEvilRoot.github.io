@@ -22,7 +22,7 @@ class Node {
 		noStroke();
 		fill(255);
 		ellipse(x, y, this.radius * 2);
-		
+
 		noStroke();
 		fill(0);
 		textAlign(CENTER, CENTER);
@@ -134,7 +134,7 @@ var stack;
 var picked = [];
 
 function setup() {
-	createCanvas(600, 900);
+	createCanvas(windowWidth, windowHeight);
 	stack = new Stack(width/2, 20);
 	for (var i = 0; i < 15; i++) {
 		stack.push(i);
@@ -188,16 +188,3 @@ function draw() {
 
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
